@@ -1,0 +1,109 @@
+<div style="margin: 20px;">
+    <h4>Agencia de viajes</h4>
+
+    <h5>Alta de viajes</h5>
+
+    <div class="col-sm-4">
+        <p>
+            <label>Nombre: </label>
+            <input type="text" class="form-control" [(ngModel)]="viaje.nombre" />
+        </p>
+        <p>
+            <label>Destino: </label> 
+            <select class="form-select form-select-sm" [(ngModel)]="viaje.destino" aria-label="Small select example">
+              <option selected>Selecciona el destino</option>
+              <option value="Canada">Canada</option>
+              <option value="Japon">Japon</option>
+              <option value="EEUU">EEUU</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Suiza">Suiza</option>
+            </select>
+        </p>
+        <p>
+            <label>Numero de personas: </label>
+            <input type="number" class="form-control" [(ngModel)]="viaje.numPersonas" />
+        </p>
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="this.insertarViaje()">Insertar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="this.updateViaje()">Modificar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="this.deleteViaje()">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>    
+    
+    <hr/>
+    <p></p>
+    <h4>Viajes</h4>
+    <table class="table table-bordered border-secondary-subtle">    
+    <thead>
+      <tr>
+        <th>Japon</th>
+        <th>Canada</th>
+        <th>EEUU</th>
+        <th>Mexico</th>
+        <th>Suiza</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <!-- Mostrar los viajes que tienen destino Japon -->
+          @for (viaje of viajes; track viaje.id) {
+            @if (viaje.destino == 'Japon') {
+              <p>Titular: {{ viaje.nombre }}</p>
+              <p>Numero de personas: {{ viaje.numPersonas }}</p>
+              <button type="button" class="btn btn-warning" (click)="selectViaje(viaje)">Seleccionar</button>
+            }
+          }
+        </td>
+        <td>
+          <!-- Mostrar los viajes que tienen destino Canada -->
+          @for (viaje of viajes; track viaje.id) {
+            @if (viaje.destino == 'Canada') {
+              <p>Titular: {{ viaje.nombre }}</p>
+              <p>Numero de personas: {{ viaje.numPersonas }}</p>
+              <button type="button" class="btn btn-warning" (click)="selectViaje(viaje)">Seleccionar</button>
+            }
+          }
+        </td>
+        <td>
+          <!-- Mostrar los viajes que tienen destino EEUU -->
+          @for (viaje of viajes; track viaje.id) {
+            @if (viaje.destino == 'EEUU') {
+              <p>Titular: {{ viaje.nombre }}</p>
+              <p>Numero de personas: {{ viaje.numPersonas }}</p>
+              <button type="button" class="btn btn-warning" (click)="selectViaje(viaje)">Seleccionar</button>
+            }
+          }
+        </td>
+        <td>
+          <!-- Mostrar los viajes que tienen destino Mexico -->
+          @for (viaje of viajes; track viaje.id) {
+            @if (viaje.destino == 'Mexico') {
+              <p>Titular: {{ viaje.nombre }}</p>
+              <p>Numero de personas: {{ viaje.numPersonas }}</p>
+              <button type="button" class="btn btn-warning" (click)="selectViaje(viaje)">Seleccionar</button>
+            }
+          }
+        </td>
+        <td>
+          <!-- Mostrar los viajes que tienen destino Suiza -->
+          @for (viaje of viajes; track viaje.id) {
+            @if (viaje.destino == 'Suiza') {
+              <p>Titular: {{ viaje.nombre }}</p>
+              <p>Numero de personas: {{ viaje.numPersonas }}</p>
+              <button type="button" class="btn btn-warning" (click)="selectViaje(viaje)">Seleccionar</button>
+            }
+          }
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
